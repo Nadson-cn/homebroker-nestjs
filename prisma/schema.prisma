@@ -11,19 +11,19 @@ datasource db {
 }
 
 model Asset {
-  id          String        @id @map("_id")
-  symbol      String
-  price       Float
-  created_at  DateTime      @default(now())
-  updated_at  DateTime      @updatedAt
-  WalletAsset WalletAsset[]
+  id           String        @id @map("_id")
+  symbol       String
+  price        Float
+  created_at   DateTime      @default(now())
+  updated_at   DateTime      @updatedAt
+  WalletAssets WalletAsset[]
 }
 
 model Wallet {
-  id          String        @id @map("_id")
-  created_at  DateTime      @default(now())
-  updated_at  DateTime      @updatedAt
-  WalletAsset WalletAsset[]
+  id           String        @id @map("_id")
+  created_at   DateTime      @default(now())
+  updated_at   DateTime      @updatedAt
+  WalletAssets WalletAsset[]
 }
 
 model WalletAsset {
