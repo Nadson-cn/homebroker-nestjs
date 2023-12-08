@@ -6,11 +6,14 @@ export class WalletsService {
   constructor(private prismaService: PrismaService) {}
 
   all() {
-    return this.prismaService.wallet.findMany();
+    return this.prismaService.wallet.findMany({
+      include: {
+        WalletAssets: true,
+      },
+    });
   }
 
   create(input: { id: string }) {
-    console.log('id', input);
     return this.prismaService.wallet.create({
       data: {
         id: input.id,
